@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calorieCalcWeb.css">
+    <script defer src="calorieCalcWeb.js"></script>
+    <title>Calorie Calculator</title>
+</head>
+<body>
+    <header class="mainHeader">
+        <h1>
+            <b class="one">cal</b>orie <b class="two">cal</b>culator
+        </h1>
+    </header>
+
+    <div class="mainContainer">
+        <div class="instructions">
+            <h3>Reach your fitness goals</h3>
+            <p class="instructionsContent">
+                Enter your information to get how many calories you should eat in a day
+            </p>  
+           
+        </div>
+
+        <div class="containerA">
+            
+            <div class="input">
+                <div class="section" id="age">
+                    <label>
+                        Age:    
+                        <input type="text" name="age" id="ageInput"/>
+                    </label>
+                    
+                </div>
+        
+                <div id="weight" class="section">
+                    <label>
+                        Weight: 
+                        <input type="text" name="weight" placeholder="lbs" id="weightInput" required/>
+                    </label>
+                </div>
+        
+                <div class="section" id="height">
+                    <label>
+                        Height: 
+                        <input type="text" name="height" placeholder="cm" id="heightInput" required/>
+                    </label>
+                    
+                </div>
+                
+                <div class="section" id="activity">
+                    <label>
+                        Activity: 
+                        
+                        <select name="activity" id="activity" required>
+                            <option value="select">Select</option>
+                            <option value="sedentary">Sedentary</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="active">Active</option>
+                            <option value="very active">Very Active</option>
+                        </select>
+                        <button  onclick="questionPopup()" class="questionButton">&nbsp;&#63;&nbsp;</button>
+                    </label>
+                </div>
+        
+                <div class="section genderSection" id="genderRadio">
+                        
+                    Gender: 
+                    <label for="male" class="male">Male</label>
+                    <input type="radio" name="gender" id="gender" value="male" required>
+        
+                    <label for="female" class="female">Female</label>
+                    <input type="radio" name="gender" id="gender" value="female" required>
+                    
+                </div>
+        
+                <div class="buttons">
+                    <button onclick="submitFunction()" class="submit" id="submit">Submit</button>
+                    
+                    <button class="clear" id="clear">Clear</button>
+        
+                </div>
+            </div>
+        </div>
+        <div class="error" id="error">
+            <div class="errorHeader">
+                Error
+                <div class="warningSymbol" id="warningSymbol">
+                    &#9888;
+                </div>
+            </div>
+            <div class="errorContent">
+                <p>
+                    Please enter non-negative numbers to
+                    <ul class="errorList" id="errorList">
+                        <li id="one"></li>
+                        <li id="two"></li>
+                        <li id="three"></li>
+
+                    </ul>
+                </p>
+            </div>
+            <div class="errorButton">
+                <button onclick="closeErrorPopup()" id="close">close</button>
+            </div>
+        </div>
+        
+
+        <div class="question" id="question">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <div class="title">
+                        Activity Level
+                    </div>
+
+                    <button onclick="closeQuestionPopup()" class="close" id="close">&times;</button>
+                </div>
+                
+                
+                <ul>
+                    <li>Sedentary:
+                        <br>
+                        You spend most of your day sitting down, inactive lifestyle.
+                    </li>
+                    <br>
+                    <li>Moderate:
+                        <br>
+                        You spend 30-60 min doing physical activities that increase heart rate and breathing rate
+                        one-two times a week.
+                    </li>
+                    <br>
+                    <li>Active:
+                        <br>
+                        You spend 60 min doing physical activities that increase heart rate and breathing rate
+                        three-four times a week.
+                    </li>
+                    <br>
+                    <li>Very Active:
+                        <br>
+                        You spend 1-3 hours doing physical activities that increase heart rate and breathing rate.
+                        five-seven times a week. Your job may require you to do physical tasks.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="containerC" id="results">
+            <div class="results-header">
+                <div class="title">
+                    Results
+                </div>
+
+                <button onclick="closeResultsPopup()" class="close">&times;</button>
+            </div>
+            <div class="results">
+                <ul>
+                    <li>
+                        Lose Weight
+                        <br>
+                        <output id="lose"></output>
+                    </li>
+                    
+                    <li>
+                        Maintain Weight
+                        <br>
+                        <output id="maintain"></output>
+                    </li>
+                    
+                    <li>
+                        Gain Weight
+                        <br>
+                        <output id="gain"></output>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>Lawrence Yoshikawa</footer>
+    <div  id="overlay" ></div>
+</body>
+</html>
